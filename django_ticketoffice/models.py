@@ -10,7 +10,7 @@ from django.contrib.auth.models import AnonymousUser
 from jsonfield import JSONField
 from uuidfield import UUIDField
 
-from django_ticketoffice.managers import TicketManager
+from django_ticketoffice.managers import TicketQuerySet
 from django_ticketoffice import settings
 from django_ticketoffice.utils import import_member
 
@@ -51,7 +51,7 @@ class Ticket(models.Model):
                                           db_index=True,
                                           default=None)
 
-    objects = TicketManager()
+    objects = TicketQuerySet.as_manager()
 
     def set_password(self, clear_password):
         """Encrypt and set password.

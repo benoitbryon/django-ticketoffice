@@ -33,9 +33,9 @@ REQUIREMENTS = [
     'Django',
     'django-floppyforms',
     'django-jsonfield',
-    'django-qmixin',
     'django-uuidfield>=0.5',
     'setuptools',
+    'six',
 ]
 if IS_PYTHON2:
     REQUIREMENTS.append('mock')

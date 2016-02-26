@@ -9,10 +9,8 @@ PIP = pip
 TOX = tox
 
 
-.PHONY: all help develop clean distclean maintainer-clean test documentation sphinx readme release
-
-
 # Default target. Does nothing.
+.PHONY: all
 all:
 	@echo "Reference card for usual actions in development environment."
 	@echo "Nothing to do by default."
@@ -20,6 +18,7 @@ all:
 
 
 #: help - Display callable targets.
+.PHONY: help
 help:
 	@echo "Reference card for usual actions in development environment."
 	@echo "Here are available targets:"
@@ -27,6 +26,7 @@ help:
 
 
 #: develop - Install minimal development utilities such as tox.
+.PHONY: develop
 develop:
 	$(PIP) install tox
 	$(PIP) install -e ./
@@ -34,6 +34,7 @@ develop:
 
 
 #: clean - Basic cleanup, mostly temporary files.
+.PHONY: clean
 clean:
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -delete
@@ -41,6 +42,7 @@ clean:
 
 
 #: distclean - Remove local builds, such as *.egg-info.
+.PHONY: distclean
 distclean: clean
 	rm -rf *.egg
 	rm -rf *.egg-info
@@ -48,30 +50,36 @@ distclean: clean
 
 
 #: maintainer-clean - Remove almost everything that can be re-generated.
+.PHONY: maintainer-clean
 maintainer-clean: distclean
 	rm -rf build/
 	rm -rf dist/
 	rm -rf .tox/
 
 
-#: test - Run test suites.
+#: test - Run test suite.
+.PHONY: test
 test:
 	$(TOX)
 
 
 #: documentation - Build documentation (Sphinx, README, ...)
+.PHONY: documentation
 documentation: sphinx readme
 
 
+.PHONY: sphinx
 sphinx:
 	$(TOX) -e sphinx
 
 
 #: readme - Build standalone documentation files (README, CONTRIBUTING...).
+.PHONY: readme
 readme:
 	$(TOX) -e readme
 
 
 #: release - Tag and push to PyPI.
+.PHONY: release
 release:
 	$(TOX) -e release

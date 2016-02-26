@@ -12,8 +12,8 @@ Kerberos
 ********
 
 `Kerberos`_ may be a candidate to implement internal one-shot authentication.
-There are some projects around `Kerberos` and `Django`: see
-https://pypi.python.org/pypi?%3Aaction=search&term=django%20kerberos
+There are some projects around `Kerberos` and `Django` in the `Python Package
+Index`_.
 
 
 *****
@@ -28,4 +28,5 @@ S/KEY
 .. target-notes::
 
 .. _`Kerberos`: https://en.wikipedia.org/wiki/Kerberos_%28protocol%29
+.. _`Python Package Index`: https://pypi.python.org/pypi
 .. _`S/KEY`: https://en.wikipedia.org/wiki/S/Key

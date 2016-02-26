@@ -15,14 +15,14 @@ framework.
 """
 import os
 
+from django.core.wsgi import get_wsgi_application
+
 
 # DJANGO_SETTINGS_MODULE environment variable is required.
 os.environ.setdefault("DJANGO_SETTINGS_MODULE",
                       "{package}.settings".format(package=__package__))
 
-
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
-from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

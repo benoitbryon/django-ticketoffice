@@ -72,7 +72,7 @@ Resources
 * Code repository: https://github.com/benoitbryon/django-ticketoffice
 * Bugtracker: https://github.com/benoitbryon/django-ticketoffice/issues
 * Continuous integration: https://travis-ci.org/benoitbryon/django-ticketoffice
-* Roadmap: https://github.com/benoitbryon/django-ticketoffice/issues/milestones
+* Roadmap: https://github.com/benoitbryon/django-ticketoffice/milestones
 
 
 .. _`django-mail-factory`:

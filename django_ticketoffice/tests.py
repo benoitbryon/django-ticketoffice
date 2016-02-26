@@ -17,7 +17,6 @@ from django.contrib.auth import hashers
 from django_ticketoffice import decorators
 from django_ticketoffice import exceptions
 from django_ticketoffice import forms
-from django_ticketoffice import managers
 from django_ticketoffice import models
 from django_ticketoffice import utils
 from django_ticketoffice.settings import TICKETOFFICE_PASSWORD_GENERATOR
@@ -27,10 +26,9 @@ def is_valid_password(password):
     if django.VERSION[0] == 1 and django.VERSION[1] == 5:
         return password == hashers.UNUSABLE_PASSWORD
 
-    elif django.VERSION[0] == 1 and django.VERSION[1] == 6:
+    elif django.VERSION[0] == 1 and django.VERSION[1] >= 6:
         return password[0] == hashers.UNUSABLE_PASSWORD_PREFIX\
             and len(password[1:]) == hashers.UNUSABLE_PASSWORD_SUFFIX_LENGTH
-
     else:
         raise Exception(
             'Django not supported: {0}.{1}.{2}'.format(django.VERSION))
@@ -38,11 +36,6 @@ def is_valid_password(password):
 
 class TicketModelTestCase(django.test.TestCase):
     """Test suite around `django_ticketoffice.models.Ticket`."""
-    def test_manager(self):
-        """Ticket.objects uses custom TicketManager."""
-        self.assertTrue(isinstance(models.Ticket.objects,
-                                   managers.TicketManager))
-
     @override_settings(
         TICKETOFFICE_PASSWORD_GENERATOR=TICKETOFFICE_PASSWORD_GENERATOR)
     def test_generate_password(self):
@@ -140,7 +133,7 @@ class TicketAuthenticationFormTestCase(unittest.TestCase):
     :py:class:`django_ticketoffice.forms.TicketAuthenticationForm`."""
     def test_clean_success(self):
         """TicketAuthenticationForm is valid if credentials syntax is ok."""
-        data = {'uuid': unicode(uuid.uuid4()), 'password': u'bar'}
+        data = {'uuid': u'{}'.format(uuid.uuid4()), 'password': u'bar'}
         form = forms.TicketAuthenticationForm(data=data)
         self.assertTrue(form.is_valid())
 
@@ -390,7 +383,6 @@ class InvitationRequiredTestCase(unittest.TestCase):
             # Run.
             response = self.run_decorated_view()
         # Check.
-        form_mock.assertCalledOnceWith(mock.sentinel.query_string)
         self.forbidden_view.assert_called_once_with(self.request)
         self.assertEqual(response, self.forbidden_view.return_value)
         self.assertFalse(self.authorized_view.called)

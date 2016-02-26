@@ -59,33 +59,6 @@ def random_password(min_length=16, max_length=32,
     return random_unicode(min_length, max_length, alphabet)
 
 
-from collections import OrderedDict
-
-from django.contrib.auth.hashers import BasePasswordHasher, mask_hash
-
-
-class PlainPasswordHasher(BasePasswordHasher):
-    "Plain password hashing algorithm for test (DO NOT USE in production)."
-    algorithm = "plain"
-
-    def salt(self):
-        return ''
-
-    def encode(self, password, salt):
-        return '%s$$%s' % (self.algorithm, password)
-
-    def verify(self, password, encoded):
-        algorithm, hash = encoded.split('$$', 1)
-        assert algorithm == self.algorithm
-        return password == hash
-
-    def safe_summary(self, encoded):
-        return OrderedDict([
-            ('algorithm', self.algorithm),
-            ('hash', mask_hash(encoded, show=3)),
-        ])
-
-
 class UnauthorizedView(TemplateView):
     template_name = '401.html'
 
@@ -116,7 +89,7 @@ def import_member(import_string):
 
     """
     module_name, factory_name = import_string.rsplit('.', 1)
-    module = __import__(module_name, globals(), locals(), [factory_name], -1)
+    module = __import__(module_name, globals(), locals(), [factory_name], 0)
     return getattr(module, factory_name)
 
 

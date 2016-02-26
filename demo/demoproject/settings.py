@@ -18,13 +18,22 @@ cfg_dir = os.path.join(root_dir, 'etc')
 
 # Applications, dependencies.
 INSTALLED_APPS = [
-    'django.contrib.sessions',
-    'django.contrib.messages',
+    # Project's.
+
     # Third-parties.
     'django_nose',
-    'floppyforms',
-    # Project's.
     'django_ticketoffice',
+    'floppyforms',
+    # Django builtins.
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.messages',
+    'django.contrib.sessions',
+]
+
+MIDDLEWARE_CLASSES = [
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 
@@ -46,15 +55,11 @@ SECRET_KEY = 'Fake secret.'
 
 
 # Use django-nose.
-INSTALLED_APPS = list(INSTALLED_APPS) + [
-    'django_nose',
-]
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 nose_cfg_dir = os.path.join(cfg_dir, 'nose')
 NOSE_ARGS = [
     '--verbosity=2',
     '--nocapture',
-    '--rednose',
     '--no-path-adjustment',
     '--all-modules',
     '--cover-inclusive',
@@ -65,5 +70,5 @@ NOSE_ARGS = [
 # Enable this feature on demand with @django.test.override_settings() or
 # @django.test.TestCase.settings() decorators in tests.
 PASSWORD_HASHERS = (
-    'django_ticketoffice.utils.PlainPasswordHasher',
+    'django_plainpasswordhasher.PlainPasswordHasher',
 )

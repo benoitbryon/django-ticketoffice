@@ -11,8 +11,11 @@ DESCRIPTION = u'Demo for django-ticketoffice.'
 README = open(os.path.join(here, 'README')).read()
 VERSION = open(os.path.join(os.path.dirname(here), 'VERSION')).read().strip()
 PACKAGES = ['demoproject']
-REQUIREMENTS = ['django-nose',
-                'django-ticketoffice']
+REQUIREMENTS = [
+    'django-plainpasswordhasher',
+    'django-nose',
+    'django-ticketoffice',
+]
 ENTRY_POINTS = {
     'console_scripts': ['demo = demoproject.manage:main'],
 }
