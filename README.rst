@@ -69,10 +69,10 @@ Resources
 
 * Documentation: https://django-ticketoffice.readthedocs.org
 * PyPI page: http://pypi.python.org/pypi/django-ticketoffice
-* Code repository: https://github.com/novapost/django-ticketoffice
-* Bugtracker: https://github.com/novapost/django-ticketoffice/issues
-* Continuous integration: https://travis-ci.org/novapost/django-ticketoffice
-* Roadmap: https://github.com/novapost/django-ticketoffice/issues/milestones
+* Code repository: https://github.com/benoitbryon/django-ticketoffice
+* Bugtracker: https://github.com/benoitbryon/django-ticketoffice/issues
+* Continuous integration: https://travis-ci.org/benoitbryon/django-ticketoffice
+* Roadmap: https://github.com/benoitbryon/django-ticketoffice/issues/milestones
 
 
 .. _`django-mail-factory`:
@@ -80,6 +80,6 @@ Resources
 .. _`vision`:
    https://django-ticketoffice.readthedocs.org/en/latest/about/vision.html
 .. _`roadmap`:
-   https://github.com/novapost/django-ticketoffice/issues/milestones
+   https://github.com/benoitbryon/django-ticketoffice/milestones
 .. _`alternatives`:
    https://django-ticketoffice.readthedocs.org/en/latest/about/alternatives.html

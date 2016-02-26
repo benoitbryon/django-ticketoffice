@@ -2,4 +2,10 @@
 Authors & contributors
 ######################
 
-See https://github.com/novapost/django-ticketoffice/contributors for details.
+Original author & maintainer: Benoît Bryon <benoit@marmelune.net>
+
+Check `code repository's graphs`_ for details about contributors.
+
+
+.. _`code repository's graphs`:
+   https://github.com/benoitbryon/django-ticketoffice/contributors
