@@ -67,7 +67,7 @@ project status.
 Resources
 *********
 
-* Documentation: https://django-ticketoffice.readthedocs.org
+* Documentation: https://django-ticketoffice.readthedocs.io
 * PyPI page: http://pypi.python.org/pypi/django-ticketoffice
 * Code repository: https://github.com/benoitbryon/django-ticketoffice
 * Bugtracker: https://github.com/benoitbryon/django-ticketoffice/issues
@@ -78,8 +78,8 @@ Resources
 .. _`django-mail-factory`:
    https://pypi.python.org/pypi/django-mail-factory
 .. _`vision`:
-   https://django-ticketoffice.readthedocs.org/en/latest/about/vision.html
+   https://django-ticketoffice.readthedocs.io/en/latest/about/vision.html
 .. _`roadmap`:
    https://github.com/benoitbryon/django-ticketoffice/milestones
 .. _`alternatives`:
-   https://django-ticketoffice.readthedocs.org/en/latest/about/alternatives.html
+   https://django-ticketoffice.readthedocs.io/en/latest/about/alternatives.html
